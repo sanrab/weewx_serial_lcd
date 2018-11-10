@@ -1,0 +1,16 @@
+Sending weewx data to a local serial LCD 4x20
+
+In weewx install csv extension (https://github.com/weewx/weewx/wiki/csv)
+In /usr/share/weewx/user modify csv.py with these options:
+binding = archive
+mode = overwrite
+append_datestamp = false
+
+Modify weewx.conf:
+[CSV]
+    filename = /var/tmp/data.csv
+    
+Restart weewx
+
+sudo /etc/init.d/weewx stop
+sudo /etc/init.d/weewx start
